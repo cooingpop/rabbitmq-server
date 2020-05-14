@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: ms-server
+  rabbitmq:
+    host: 10.67.32.19
+    port: 5672
+    username : rabbitmq
+    password : playd123!@#
+    listener:
+      default-requeue-rejected: false
+    #listener:
+      #simple:
+        #retry:
+          ##enabled: true # spring boot 의 retry mechanism 사용
+          ##initial-interval: 3s # 처음 메시지 처리 실패시 N초후에 다시 해당 메시지 처리
+          ##max-interval: 10s # 최대 N초후에 실패한 메시지 처리
+          ##max-attempts: 5 # 최대 N 번까지만 메시지 처리 시도, N 넘어가면 해당 메시지는 dlx exchange로 넘김
+          ##multiplier: 2 # 동일 메시지에 대한 처리 시도 횟수가 증가할 수록 interval 시간에 N 곱함. initial-interval * multiplier > max-interval
+        #default-requeue-rejected: false
+
+  encoding:
+    charset: UTF-8
+    enabled: true
+    force: true
+
+debug: true
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
